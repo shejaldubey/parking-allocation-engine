@@ -1,0 +1,66 @@
+/* General Layout & Typography */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; }
+body { background-color: #0f172a; color: #f1f5f9; height: 100vh; display: flex; overflow: hidden; }
+
+.app-container { display: flex; width: 100%; height: 100%; }
+
+/* Sidebar - Professional Dark Mode */
+.sidebar { width: 340px; background-color: #1e293b; border-right: 1px solid #334155; padding: 25px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; box-shadow: 5px 0 15px rgba(0,0,0,0.3); }
+.sidebar-header h1 { color: #38bdf8; font-size: 1.6rem; }
+.sidebar-header .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 5px; }
+
+.form-section { background: #334155; padding: 15px; border-radius: 12px; border: 1px solid #475569; }
+.form-section h2 { color: #f8fafc; font-size: 1.1rem; margin-bottom: 12px; }
+
+form { display: flex; flex-direction: column; gap: 10px; }
+input, select { background: #0f172a; color: white; border: 1px solid #475569; padding: 10px; border-radius: 6px; width: 100%; }
+
+.btn { padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; color: white; transition: 0.3s; width: 100%; }
+.btn:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-park { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.btn-leave { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.btn-refresh { background: #10b981; }
+
+/* Stats & Legend */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center; }
+.stat-card { background: #0f172a; padding: 10px; border-radius: 8px; border: 1px solid #475569; }
+.stat-value { display: block; font-size: 1.2rem; font-weight: bold; color: #38bdf8; }
+.stat-label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; }
+
+.legend { margin-top: 20px; padding-top: 15px; border-top: 1px solid #334155; }
+.legend h3 { font-size: 0.9rem; color: #94a3b8; margin-bottom: 10px; }
+.legend ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.legend li { font-size: 0.85rem; display: flex; align-items: center; color: #cbd5e1; }
+
+.legend-swatch { display: inline-block; width: 16px; height: 16px; border-radius: 4px; margin-right: 10px; }
+.free-small { background-color: #22c55e; }
+.free-medium { background-color: #3b82f6; }
+.free-large { background-color: #a855f7; }
+.occupied { background-color: #f43f5e; }
+
+/* Main Content Area */
+.main-content { flex-grow: 1; padding: 30px; overflow-y: auto; background: #0f172a; }
+.main-header { display: flex; justify-content: space-between; align-items: center; background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #334155; }
+
+.floor-section { background: #1e293b; padding: 25px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #334155; }
+.floor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+
+/* Parking Spots */
+.spot-cell { height: 80px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; font-weight: bold; transition: all 0.3s; cursor: pointer; }
+.spot-cell:hover { transform: scale(1.05); z-index: 10; }
+
+.spot-cell.free.size-SMALL { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 0 10px rgba(34,197,94,0.3); }
+.spot-cell.free.size-MEDIUM { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 0 10px rgba(59,130,246,0.3); }
+.spot-cell.free.size-LARGE { background: linear-gradient(135deg, #a855f7, #9333ea); box-shadow: 0 0 10px rgba(168,85,247,0.3); }
+
+.spot-cell.occupied { background: #f43f5e; box-shadow: 0 0 15px rgba(244,63,94,0.5); border: 2px solid #e11d48; }
+
+.spot-id { font-size: 0.8rem; opacity: 0.8; }
+.spot-plate { font-size: 0.75rem; padding: 2px 6px; background: rgba(0,0,0,0.3); border-radius: 4px; margin-top: 4px; }
+
+/* Utility */
+.message-area { margin-top: 15px; padding: 10px; border-radius: 6px; font-size: 0.85rem; display: none; }
+.message-area.visible { display: block; }
+.success { background: #064e3b; color: #34d399; border: 1px solid #10b981; }
+.error { background: #7f1d1d; color: #f87171; border: 1px solid #ef4444; }

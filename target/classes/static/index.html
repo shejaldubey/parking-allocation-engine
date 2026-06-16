@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Allocation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <h1>Smart Parking</h1>
+                <p class="subtitle">Allocation System</p>
+            </header>
+
+            <section class="form-section portfolio-demo">
+                <h2>Portfolio Demo</h2>
+                <p style="font-size: 0.85rem; margin-bottom: 10px; color: #94a3b8;">
+                    Watch the O(log N) allocation algorithm fill and empty the closest available spots.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button type="button" id="start-sim-btn" class="btn" style="background-color: #8e44ad; color: white;">Run Live Simulation</button>
+                    <button type="button" id="stop-sim-btn" class="btn" style="background-color: #7f8c8d; color: white;" disabled>Stop Simulation</button>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Park Vehicle</h2>
+                <form id="park-form">
+                    <label for="park-license">License Plate</label>
+                    <input type="text" id="park-license" name="licensePlate" placeholder="ABC-1234" required>
+
+                    <label for="park-size">Vehicle Size</label>
+                    <select id="park-size" name="size" required>
+                        <option value="SMALL">Small</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LARGE">Large</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-park">Park Vehicle</button>
+                </form>
+            </section>
+
+            <section class="form-section">
+                <h2>Leave Parking</h2>
+                <form id="leave-form">
+                    <label for="leave-license">License Plate</label>
+                    <input type="text" id="leave-license" name="licensePlate" placeholder="ABC-1234" required>
+
+                    <button type="submit" class="btn btn-leave">Leave &amp; Pay</button>
+                </form>
+            </section>
+
+            <section class="stats-section">
+                <h2>Live Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-total">125</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-free">125</span>
+                        <span class="stat-label">Free</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-occupied">0</span>
+                        <span class="stat-label">Used</span>
+                    </div>
+                </div>
+            </section>
+
+            <div id="message-area" class="message-area" role="status" aria-live="polite"></div>
+
+            <div class="legend">
+                <h3>Legend</h3>
+                <ul>
+                    <li><span class="legend-swatch free-small"></span> Small Spot</li>
+                    <li><span class="legend-swatch free-medium"></span> Medium Spot</li>
+                    <li><span class="legend-swatch free-large"></span> Large Spot</li>
+                    <li><span class="legend-swatch occupied"></span> Occupied</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Parking Lot Overview</h2>
+                <p>5 Floors &times; 25 Spots &mdash; Smart Proximity Algorithm</p>
+                <button type="button" id="refresh-btn" class="btn btn-refresh">Refresh Grid</button>
+            </header>
+
+            <div id="parking-grid" class="parking-grid">
+                <p class="loading">Loading parking spots...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
