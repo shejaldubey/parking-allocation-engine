@@ -2,6 +2,10 @@
 FROM eclipse-temurin:17-jdk-jammy AS build
 WORKDIR /app
 COPY . .
+
+# ADD THIS LINE: Grant execute permission to the Maven wrapper
+RUN chmod +x ./mvnw
+
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Create the final lightweight image
@@ -9,8 +13,6 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose the port (Render defaults to 10000, but Spring Boot usually uses 8080)
-EXPOSE 8081
+EXPOSE 8080
 
-# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
